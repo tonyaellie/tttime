@@ -27,12 +27,12 @@ jobs:
         with:
           node-version: 16.x
           cache: 'pnpm'
+          cache-dependency-path: typescript/pnpm-lock.yaml
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
       - run: pip install setuptools wheel twine
 
-      - run: cd typescript
       - run: pnpm install --frozen-lockfile
       - name: Create Release Pull Request or Publish
         id: changesets
