@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Union
-from dateutil.parser import isoparse
 
 MILLISECOND_MULTIPLIER = 1
 SECOND_MULTIPLIER = MILLISECOND_MULTIPLIER * 1000
@@ -38,11 +37,14 @@ class TTTime:
       if 'milliseconds' in input:
         self.set_millisecond(input['milliseconds'])
     elif isinstance(input, str):
-      self.__time = self.__from_standard(isoparse(input))
+      self.__time = self.__from_standard(self.__parse_isoformat(input))
     elif isinstance(input, datetime):
       self.__time = self.__from_standard(input)
     else:
       self.__time = self.__from_standard(datetime.now(timezone.utc))
+
+  def __parse_isoformat(self, date_string: str) -> datetime:
+    return datetime.fromisoformat(date_string.replace("Z", "+00:00"))
 
   def __from_standard(self, standard__time: datetime) -> int:
     if standard__time.tzinfo is None:
