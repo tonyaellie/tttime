@@ -7,6 +7,9 @@ on:
 jobs:
   build-typescript:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: typescript
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -17,11 +20,13 @@ jobs:
           node-version: 16.x
           cache: 'pnpm'
 
-      - run: cd typescript
       - run: pnpm install --frozen-lockfile
       - run: pnpm run lint && pnpm run build && pnpm run test
   build-python:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
