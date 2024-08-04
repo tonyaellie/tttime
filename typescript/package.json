@@ -1,6 +1,7 @@
 {
   "name": "tttime",
   "author": "tonyaellie",
+  "repository": "https://github.com/tonyaellie/tttime",
   "license": "MIT",
   "version": "1.0.0",
   "main": "dist/index.js",
@@ -8,7 +9,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup index.ts --format cjs,esm --dts",
-    "release": "pnpm run build && changeset publish",
+    "release": "pnpm run build && changeset publish && cd ../python && ./publish.sh",
     "lint": "tsc",
     "test": "vitest"
   },

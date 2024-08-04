@@ -5,7 +5,7 @@ on:
       - '**'
 
 jobs:
-  build:
+  build-typescript:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,5 +17,15 @@ jobs:
           node-version: 16.x
           cache: 'pnpm'
 
+      - run: cd typescript
       - run: pnpm install --frozen-lockfile
       - run: pnpm run lint && pnpm run build && pnpm run test
+  build-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - run: cd python
+      - run: python -m unittest test.py
