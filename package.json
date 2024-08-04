@@ -1,0 +1,21 @@
+{
+  "name": "tttime",
+  "author": "tonyaellie",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "release": "pnpm run build && changeset publish",
+    "lint": "tsc",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.7",
+    "tsup": "^6.7.0",
+    "typescript": "^4.9.5",
+    "vitest": "^2.0.5"
+  }
+}
