@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 16.x
           cache: 'pnpm'
+          cache-dependency-path: typescript/pnpm-lock.yaml
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm run lint && pnpm run build && pnpm run test
@@ -32,5 +33,4 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - run: cd python
       - run: python -m unittest test.py
