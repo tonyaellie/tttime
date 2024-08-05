@@ -1,12 +1,12 @@
 [package]
 name = "tttime"
-# this version is automatically copied from the typescript package.json
-# so does not need to be updated manually, this does mean that sometimes
-# it might apear out of sync
-version = "1.0.2"
 edition = "2021"
 description = "An implementation of a TTTime in Rust."
 license = "MIT"
 repository = "https://github.com/tonyaellie/tttime"
+# this version is automatically copied from the typescript package.json
+# so does not need to be updated manually, this does mean that sometimes
+# it might apear out of sync
+version = "1.0.2"
 
 [dependencies]
