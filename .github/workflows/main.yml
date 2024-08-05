@@ -53,3 +53,17 @@ jobs:
         run: |
           cargo build --release
           cargo test
+
+  build-go:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: go
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.22.2'
+      - run: go build ./...
+      - run: go test ./...
