@@ -2,6 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='tttime',
+    # this version is automatically copied from the typescript package.json
+    # so does not need to be updated manually, this does mean that sometimes
+    # it might apear out of sync
     version='1.0.0',
     author='tonyaellie',
     author_email='tonya@tokia.dev',
