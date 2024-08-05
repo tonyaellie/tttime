@@ -1,5 +1,11 @@
 # tttime
 
+## 1.0.2
+
+### Patch Changes
+
+- 53365c9: add basic rust support
+
 ## 1.0.1
 
 ### Patch Changes
