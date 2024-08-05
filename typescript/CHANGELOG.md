@@ -1,5 +1,11 @@
 # tttime
 
+## 1.0.5
+
+### Patch Changes
+
+- 93b6048: add go
+
 ## 1.0.4
 
 ### Patch Changes
