@@ -23,6 +23,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm run lint && pnpm run build && pnpm run test
+
   build-python:
     runs-on: ubuntu-latest
     defaults:
@@ -34,3 +35,21 @@ jobs:
         with:
           python-version: '3.x'
       - run: python -m unittest test.py
+
+  build-rust:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+      - name: Build and test
+        run: |
+          cargo build --release
+          cargo test

@@ -311,7 +311,7 @@ export class TTTime {
       .replace('%H', this.getHour().toString().padStart(2, '0'))
       .replace('%M', this.getMinute().toString().padStart(2, '0'))
       .replace('%S', this.getSecond().toString().padStart(2, '0'))
-      .replace('%f', this.getMillisecond().toString());
+      .replace('%f', this.getMillisecond().toString().padStart(3, '0'));
   }
   /**
    * Converts the TTTime object to a number representing the number of milliseconds since the epoch.

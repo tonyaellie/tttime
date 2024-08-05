@@ -9,7 +9,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup index.ts --format cjs,esm --dts",
-    "release": "pnpm run build && changeset publish && cd ../python && ./publish.sh",
+    "release": "pnpm run build && changeset publish && cd ../python && ./publish.sh && cd ../rust && ./publish.sh",
     "lint": "tsc",
     "test": "vitest"
   },
